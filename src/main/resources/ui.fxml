@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="863.0" prefWidth="1151.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp3111.covid.Controller">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="903.0" prefWidth="719.0">
+      <children>
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="758.0" prefWidth="1152.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabTaskZero" text="Task Zero">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="221.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="114.0" layoutY="68.0" prefHeight="18.0" prefWidth="58.0" text="ISO Code" />
+                              <TextField fx:id="textfieldISO" layoutX="185.0" layoutY="64.0" prefHeight="26.0" prefWidth="43.0" promptText="e.g 1830 (18: yr 18-19; 30: Spring)" text="HKG" />
+                              <Button fx:id="buttonConfirmedDeaths" layoutX="303.0" layoutY="134.0" mnemonicParsing="false" onAction="#doConfirmedDeaths" text="Confirmed Deaths" />
+                              <Label layoutX="114.0" layoutY="36.0" text="Dataset" />
+                              <TextField fx:id="textfieldDataset" layoutX="185.0" layoutY="32.0" prefHeight="26.0" prefWidth="149.0" text="COVID_Dataset_v1.0.csv" />
+                              <Label layoutX="114.0" layoutY="138.0" text="Report" />
+                              <Button fx:id="buttonRateOfVaccination" layoutX="423.0" layoutY="134.0" mnemonicParsing="false" onAction="#doRateOfVaccination" text="Rate of Vaccination" />
+                              <Button fx:id="buttonConfirmedCases" layoutX="185.0" layoutY="134.0" mnemonicParsing="false" onAction="#doConfirmedCases" text="Confirmed Cases" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReport1" text="Table A">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="719.0">
+                           <children>
+                              <Label layoutX="79.0" layoutY="44.0" />
+                              <Label layoutX="145.0" layoutY="69.0" prefHeight="29.0" prefWidth="140.0" text="Select countries" textAlignment="CENTER" />
+                              <Label layoutX="145.0" layoutY="112.0" prefHeight="29.0" prefWidth="140.0" text="Date" textAlignment="CENTER" />
+                              <Button fx:id="tableA_generateButton" layoutX="304.0" layoutY="161.0" mnemonicParsing="false" onAction="#doConfirmedCasesTable" text="Generate Table" />
+                              <Label layoutX="145.0" layoutY="36.0" text="Dataset" />
+                              <TextField fx:id="tableADataset" layoutX="323.0" layoutY="31.0" prefHeight="26.0" prefWidth="190.0" text="COVID_Dataset_v1.0.csv" />
+                              <DatePicker fx:id="tableA_date" layoutX="323.0" layoutY="113.0" prefHeight="26.0" prefWidth="190.0" />
+                              <MenuButton fx:id="tableA_MenuButton" layoutX="323.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#updateCountries" prefHeight="26.0" prefWidth="190.0" text="MenuButton">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Action 1" />
+                                    <MenuItem mnemonicParsing="false" text="Action 2" />
+                                 </items>
+                              </MenuButton>
+                              <TableView fx:id="tableA_table" layoutX="143.0" layoutY="252.0" prefHeight="471.0" prefWidth="826.0">
+                                 <columns>
+                                    <TableColumn fx:id="A_Country" prefWidth="143.0" sortable="false" text="Country" />
+                                    <TableColumn fx:id="A_Total_Cases" prefWidth="327.48541259765625" sortable="false" text="Total Cases" />
+                                    <TableColumn fx:id="A_Total_Cases_PM" prefWidth="355.0145263671875" sortable="false" text="Total Cases (per 1M)" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="555.0" layoutY="70.0" mnemonicParsing="false" onAction="#clearSelection" prefHeight="26.0" prefWidth="120.0" text="Clear selection" />
+                              <Button fx:id="sortCountryA" ellipsisString="↑" layoutX="143.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByCountryA" prefHeight="26.0" prefWidth="3.0" text="Button" />
+                              <Button fx:id="sortCasesA" ellipsisString="↑" layoutX="286.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByCases" prefHeight="26.0" prefWidth="26.0" text="Button" />
+                              <Button fx:id="sortCasesPMA" ellipsisString="↑" layoutX="613.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByCasesPM" prefHeight="26.0" prefWidth="26.0" text="Button" />
+                              <Label fx:id="tableAtitle" layoutX="218.0" layoutY="221.0" text="Number of Confirmed COVID-19 Cases as of [Date of Interest]">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="tableAfileChooser" layoutX="529.0" layoutY="31.0" mnemonicParsing="false" onAction="#tableAchooseFile" text="Choose File" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab fx:id="tabReport2" text="Table B">
+                  <content>
+                        <AnchorPane>
+                           <children>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="727.0" prefWidth="1152.0">
+                                 <children>
+                                    <Label layoutX="145.0" layoutY="36.0" text="Dataset" />
+                                    <TextField fx:id="tableBDataset" layoutX="323.0" layoutY="31.0" prefHeight="26.0" prefWidth="190.0" text="COVID_Dataset_v1.0.csv" />
+                                    <DatePicker fx:id="tableB_date" layoutX="323.0" layoutY="113.0" prefHeight="26.0" prefWidth="190.0" />
+                                    <MenuButton fx:id="tableB_MenuButton" layoutX="323.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#updateCountries" prefHeight="26.0" prefWidth="190.0" text="MenuButton">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Action 1" />
+                                          <MenuItem mnemonicParsing="false" text="Action 2" />
+                                       </items>
+                                    </MenuButton>
+                                    <Label layoutX="145.0" layoutY="69.0" prefHeight="29.0" prefWidth="140.0" text="Select countries" textAlignment="CENTER" />
+                                    <Label layoutX="145.0" layoutY="112.0" prefHeight="29.0" prefWidth="140.0" text="Date" textAlignment="CENTER" />
+                                    <TableView fx:id="tableB_table" layoutX="143.0" layoutY="252.0" prefHeight="471.0" prefWidth="826.0">
+                                       <columns>
+                                          <TableColumn fx:id="B_Country" prefWidth="143.0" sortable="false" text="Country" />
+                                          <TableColumn fx:id="B_Total_Deaths" prefWidth="327.48541259765625" sortable="false" text="Total Deaths" />
+                                          <TableColumn fx:id="B_Total_Deaths_PM" prefWidth="355.0145263671875" sortable="false" text="Total Deaths (per 1M)" />
+                                       </columns>
+                                    </TableView>
+                                    <Button layoutX="555.0" layoutY="70.0" mnemonicParsing="false" onAction="#clearSelection" prefHeight="26.0" prefWidth="120.0" text="Clear selection" />
+                                    <Button fx:id="sortCountryB" ellipsisString="↑" layoutX="143.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByCountryB" prefHeight="26.0" prefWidth="3.0" text="Button" />
+                                    <Button fx:id="sortDeathsB" ellipsisString="↑" layoutX="286.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByDeaths" prefHeight="26.0" prefWidth="26.0" text="Button" />
+                                    <Button fx:id="sortDeathsPMB" ellipsisString="↑" layoutX="613.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByDeathsPM" prefHeight="26.0" prefWidth="26.0" text="Button" />
+                                    <Label fx:id="tableBtitle" layoutX="221.0" layoutY="221.0" text="Number of Confirmed COVID-19 Deaths as of [Date of Interest]">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="tableBfileChooser" layoutX="529.0" layoutY="31.0" mnemonicParsing="false" onAction="#tableBchooseFile" text="Choose File" />
+                                 </children></AnchorPane>
+                              <Button fx:id="tableB_generateButton" layoutX="304.0" layoutY="161.0" mnemonicParsing="false" onAction="#doConfirmedDeathsTable" text="Generate Table" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabReport3" text="Table C">
+                    <content>
+                        <AnchorPane>
+                           <children>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="719.0" prefWidth="1141.0">
+                                 <children>
+                                    <TableView fx:id="tableC_table" layoutX="143.0" layoutY="252.0" prefHeight="471.0" prefWidth="826.0">
+                                      <columns>
+                                        <TableColumn fx:id="C_Country" prefWidth="143.0" sortable="false" text="Country" />
+                                        <TableColumn fx:id="C_Fully_Vax" prefWidth="327.48541259765625" sortable="false" text="Fully Vaccinated" />
+                                          <TableColumn fx:id="C_Vax_Rate" prefWidth="355.0145263671875" sortable="false" text="Rate of Vaccination" />
+                                      </columns>
+                                    </TableView>
+                                    <Button fx:id="tableC_generateButton" layoutX="304.0" layoutY="161.0" mnemonicParsing="false" onAction="#doRateOfVaccinationTable" text="Generate Table" />
+                                    <TextField fx:id="tableCDataset" layoutX="323.0" layoutY="31.0" prefHeight="26.0" prefWidth="190.0" text="COVID_Dataset_v1.0.csv" />
+                                    <DatePicker fx:id="tableC_date" layoutX="323.0" layoutY="113.0" prefHeight="26.0" prefWidth="190.0" />
+                                    <MenuButton fx:id="tableC_MenuButton" layoutX="323.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#updateCountries" prefHeight="26.0" prefWidth="190.0" text="MenuButton">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Action 1" />
+                                          <MenuItem mnemonicParsing="false" text="Action 2" />
+                                       </items>
+                                    </MenuButton>
+                                    <Label layoutX="145.0" layoutY="36.0" text="Dataset" />
+                                    <Label layoutX="145.0" layoutY="69.0" prefHeight="29.0" prefWidth="140.0" text="Select countries" textAlignment="CENTER" />
+                                    <Label layoutX="145.0" layoutY="112.0" prefHeight="29.0" prefWidth="140.0" text="Date" textAlignment="CENTER" />
+                                    <Button layoutX="555.0" layoutY="70.0" mnemonicParsing="false" onAction="#clearSelection" prefHeight="26.0" prefWidth="120.0" text="Clear selection" />
+                                    <Label fx:id="tableCtitle" layoutX="225.0" layoutY="221.0" text="Rate of Vaccination against COVID-19 as of [Date of Interest]">
+                                       <font>
+                                          <Font size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="tableCfileChooser" layoutX="529.0" layoutY="31.0" mnemonicParsing="false" onAction="#tableCchooseFile" text="Choose File" />
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="sortCountryC" ellipsisString="↑" layoutX="143.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByCountryC" prefHeight="26.0" prefWidth="3.0" text="Button" />
+                              <Button fx:id="sortVaxC" ellipsisString="↑" layoutX="286.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByVax" prefHeight="26.0" prefWidth="26.0" text="Button" />
+                              <Button fx:id="sortVaxRateC" ellipsisString="↑" layoutX="613.0" layoutY="252.0" mnemonicParsing="false" onAction="#sortByVaxRate" prefHeight="26.0" prefWidth="26.0" text="Button" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp1" text="Chart A">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="640.0" prefWidth="719.0">
+                           <children>
+                              <LineChart fx:id="chartA_LineChart" layoutX="33.0" layoutY="235.0" prefHeight="471.0" prefWidth="1082.0" stylesheets="@color.css">
+                                <xAxis>
+                                  <CategoryAxis animated="false" label="Date" side="BOTTOM" fx:id="xAxis" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="yAxis" label="Cumulative confirmed COVID-19 caseCumulativeDate confirmed COVID-19 casesCumulative confirmed COVID-19 caseCumulative confirmed COVID-19 cases" prefWidth="0.0" side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <Label layoutX="114.0" layoutY="101.0" text="Period" />
+                              <Button fx:id="chartA_generateButton" layoutX="309.0" layoutY="146.0" mnemonicParsing="false" onAction="#doConfirmedCasesChart" text="Generate Chart" />
+                              <Label layoutX="114.0" layoutY="43.0" text="Select Countries" />
+                              <Label layoutX="114.0" layoutY="15.0" text="Dataset" />
+                              <TextField fx:id="chartADataset" layoutX="234.0" layoutY="12.0" prefHeight="26.0" prefWidth="190.0" text="COVID_Dataset_v1.0.csv" />
+                              <DatePicker fx:id="chart_A_period_start" layoutX="226.0" layoutY="97.0" />
+                              <DatePicker fx:id="chart_A_period_end" layoutX="436.0" layoutY="98.0" />
+                              <Label layoutX="291.0" layoutY="74.0" text="Start Date" />
+                              <Label layoutX="504.0" layoutY="74.0" text="End Date" />
+                              <MenuButton fx:id="chartA_MenuButton" layoutX="235.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#updateCountries" prefHeight="26.0" prefWidth="190.0" text="MenuButton">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                </items>
+                              </MenuButton>
+                              <Button layoutX="448.0" layoutY="43.0" mnemonicParsing="false" onAction="#clearSelection" prefHeight="26.0" prefWidth="120.0" text="Clear Selection" />
+                              <Button fx:id="chartA_saveButton" layoutX="999.0" layoutY="189.0" mnemonicParsing="false" onAction="#chooseSavePath" prefHeight="35.0" prefWidth="106.0" text="Save Chart" />
+                              <Button fx:id="chartAfileChooser" layoutX="448.0" layoutY="12.0" mnemonicParsing="false" onAction="#chartAchooseFile" text="Choose File" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp2" text="Chart B">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="719.0">
+                                 <children>
+                                    <Label layoutX="114.0" layoutY="101.0" text="Period" />
+                                    <Button fx:id="chartB_generateButton" layoutX="309.0" layoutY="146.0" mnemonicParsing="false" onAction="#doConfirmedDeathsChart" text="Generate Chart" />
+                                    <Label layoutX="114.0" layoutY="43.0" text="Select Countries" />
+                                    <Label layoutX="114.0" layoutY="15.0" text="Dataset" />
+                                    <TextField fx:id="chartBDataset" layoutX="234.0" layoutY="12.0" prefHeight="26.0" prefWidth="190.0" text="COVID_Dataset_v1.0.csv" />
+                                    <DatePicker fx:id="chart_B_period_start" layoutX="226.0" layoutY="97.0" />
+                                    <DatePicker fx:id="chart_B_period_end" layoutX="436.0" layoutY="98.0" />
+                                    <Label layoutX="291.0" layoutY="74.0" text="Start Date" />
+                                    <Label layoutX="504.0" layoutY="74.0" text="End Date" />
+                                    <MenuButton fx:id="chartB_MenuButton" layoutX="235.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#updateCountries" prefHeight="26.0" prefWidth="190.0" text="MenuButton">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Action 1" />
+                                          <MenuItem mnemonicParsing="false" text="Action 2" />
+                                       </items>
+                                    </MenuButton>
+                                    <Button layoutX="448.0" layoutY="43.0" mnemonicParsing="false" onAction="#clearSelection" prefHeight="26.0" prefWidth="120.0" text="Clear Selection" />
+                                 </children>
+                              </AnchorPane>
+                              <LineChart fx:id="chartB_LineChart" layoutX="33.0" layoutY="235.0" prefHeight="471.0" prefWidth="1082.0" stylesheets="@color.css">
+                                 <xAxis>
+                                    <CategoryAxis animated="false" label="Date" side="BOTTOM" fx:id="xAxis1" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis fx:id="yAxis1" label="Cumulative confirmed COVID-19 caseCumulativeDate confirmed COVID-19 casesCumulative confirmed COVID-19 caseCumulative confirmed COVID-19 cases" prefWidth="0.0" side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                              <Button fx:id="chartA_saveButton1" layoutX="999.0" layoutY="189.0" mnemonicParsing="false" onAction="#chooseSavePath" prefHeight="35.0" prefWidth="106.0" text="Save Chart" />
+                              <Button fx:id="chartBfileChooser" layoutX="448.0" layoutY="12.0" mnemonicParsing="false" onAction="#chartBchooseFile" text="Choose File" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="tabApp3" text="Chart C">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="412.0" prefWidth="719.0">
+                                 <children>
+                                    <Label layoutX="114.0" layoutY="101.0" text="Period" />
+                                    <Button fx:id="chartC_generateButton" layoutX="309.0" layoutY="146.0" mnemonicParsing="false" onAction="#doRateOfVaccinationChart" text="Generate Chart" />
+                                    <Label layoutX="114.0" layoutY="43.0" text="Select Countries" />
+                                    <Label layoutX="114.0" layoutY="15.0" text="Dataset" />
+                                    <TextField fx:id="chartCDataset" layoutX="234.0" layoutY="12.0" prefHeight="26.0" prefWidth="190.0" text="COVID_Dataset_v1.0.csv" />
+                                    <DatePicker fx:id="chart_C_period_start" layoutX="226.0" layoutY="97.0" />
+                                    <DatePicker fx:id="chart_C_period_end" layoutX="436.0" layoutY="98.0" />
+                                    <Label layoutX="291.0" layoutY="74.0" text="Start Date" />
+                                    <Label layoutX="504.0" layoutY="74.0" text="End Date" />
+                                    <MenuButton fx:id="chartC_MenuButton" layoutX="235.0" layoutY="43.0" mnemonicParsing="false" onMouseClicked="#updateCountries" prefHeight="26.0" prefWidth="190.0" text="MenuButton">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Action 1" />
+                                          <MenuItem mnemonicParsing="false" text="Action 2" />
+                                       </items>
+                                    </MenuButton>
+                                    <Button layoutX="448.0" layoutY="43.0" mnemonicParsing="false" onAction="#clearSelection" prefHeight="26.0" prefWidth="120.0" text="Clear Selection" />
+                                 </children>
+                              </AnchorPane>
+                              <LineChart fx:id="chartC_LineChart" layoutX="33.0" layoutY="235.0" prefHeight="471.0" prefWidth="1082.0" stylesheets="@color.css">
+                                 <xAxis>
+                                    <CategoryAxis animated="false" label="Date" side="BOTTOM" fx:id="xAxis2" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis fx:id="yAxis2" label="Cumulative confirmed COVID-19 caseCumulativeDate confirmed COVID-19 casesCumulative confirmed COVID-19 caseCumulative confirmed COVID-19 cases" prefWidth="0.0" side="LEFT" />
+                                 </yAxis>
+                              </LineChart>
+                              <Button fx:id="chartA_saveButton2" layoutX="999.0" layoutY="189.0" mnemonicParsing="false" onAction="#chooseSavePath" prefHeight="35.0" prefWidth="106.0" text="Save Chart" />
+                              <Button fx:id="chartCfileChooser" layoutX="448.0" layoutY="12.0" mnemonicParsing="false" onAction="#chartCchooseFile" text="Choose File" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+      <ScrollPane prefHeight="253.0" prefWidth="1152.0" />
+  </children>
+</VBox>

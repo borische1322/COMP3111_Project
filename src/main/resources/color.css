@@ -1,0 +1,239 @@
+/* .default-color0.chart-series-line { -fx-stroke: #e9967a; }
+.default-color1.chart-series-line { -fx-stroke: #f0e68c; }
+.default-color2.chart-series-line { -fx-stroke: #dda0dd; } */
+.chart-series-line.series0 {
+    -fx-stroke:#80000000;
+}
+.chart-line-symbol.series0 {
+    -fx-background-color: #80000000, rgba(255, 255, 255, 0);
+}
+
+.chart-series-line.series1 {
+    -fx-stroke: #A52A2A;
+}
+.chart-line-symbol.series1 {
+    -fx-background-color: #A52A2A, white;
+}
+
+.chart-series-line.series2 {
+    -fx-stroke: crimson;
+}
+.chart-line-symbol.series2 {
+    -fx-background-color: crimson, white;
+}
+.chart-series-line.series3 {
+    -fx-stroke: #FF6347;
+}
+.chart-line-symbol.series3 {
+    -fx-background-color: #FF6347, white;
+}
+
+.chart-series-line.series4 {
+    -fx-stroke: #CD5C5C;
+}
+.chart-line-symbol.series4 {
+    -fx-background-color: #CD5C5C, white;
+}
+
+.chart-series-line.series5 {
+    -fx-stroke: #E9967A;
+}
+.chart-line-symbol.series5 {
+    -fx-background-color: #E9967A, white;
+}
+
+.chart-series-line.series6 {
+    -fx-stroke: #FF4500;
+}
+.chart-line-symbol.series6 {
+    -fx-background-color: #FF4500, white;
+}
+
+.chart-series-line.series7 {
+    -fx-stroke: #FFA500;
+}
+.chart-line-symbol.series7 {
+    -fx-background-color: #FFA500, white;
+}
+
+.chart-series-line.series8 {
+    -fx-stroke: #FFD700;
+}
+.chart-line-symbol.series8 {
+    -fx-background-color: #FFD700, white;
+}
+
+.chart-series-line.series9 {
+    -fx-stroke: #DAA520;
+}
+.chart-line-symbol.series9 {
+    -fx-background-color: #DAA520, white;
+}
+
+.chart-series-line.series10 {
+    -fx-stroke: #BDB76B;
+}
+.chart-line-symbol.series10 {
+    -fx-background-color: #BDB76B, white;
+}
+
+.chart-series-line.series11 {
+    -fx-stroke: #808000;
+}
+.chart-line-symbol.series11 {
+    -fx-background-color: #808000, white;
+}
+
+.chart-series-line.series12 {
+    -fx-stroke: #9ACD32;
+}
+.chart-line-symbol.series12 {
+    -fx-background-color: #9ACD32, white;
+}
+
+.chart-series-line.series13 {
+    -fx-stroke: #7CFC00;
+}
+.chart-line-symbol.series13 {
+    -fx-background-color: #7CFC00, white;
+}
+
+.chart-series-line.series14 {
+    -fx-stroke: #006400;
+}
+.chart-line-symbol.series14 {
+    -fx-background-color: #006400, white;
+}
+
+.chart-series-line.series15 {
+    -fx-stroke: #98FB98;
+}
+.chart-line-symbol.series15 {
+    -fx-background-color: #98FB98, white;
+}
+
+.chart-series-line.series16 {
+    -fx-stroke: #66CDAA;
+}
+.chart-line-symbol.series16 {
+    -fx-background-color: #66CDAA, white;
+}
+
+.chart-series-line.series17 {
+    -fx-stroke: #008B8B;
+}
+.chart-line-symbol.series17 {
+    -fx-background-color: #008B8B, white;
+}
+
+.chart-series-line.series18 {
+    -fx-stroke: #00FFFF;
+}
+.chart-line-symbol.series18 {
+    -fx-background-color: #00FFFF, white;
+}
+
+.chart-series-line.series19 {
+    -fx-stroke: #4682B4;
+}
+.chart-line-symbol.series19 {
+    -fx-background-color: #4682B4, white;
+}
+
+.chart-series-line.series20 {
+    -fx-stroke: #6495ED;
+}
+.chart-line-symbol.series20 {
+    -fx-background-color: #6495ED, white;
+}
+
+.chart-series-line.series21 {
+    -fx-stroke: #00BFFF;
+}
+.chart-line-symbol.series21 {
+    -fx-background-color: #00BFFF, white;
+}
+
+.chart-series-line.series22 {
+    -fx-stroke: #1E90FF;
+}
+.chart-line-symbol.series22 {
+    -fx-background-color: #1E90FF, white;
+}
+
+.chart-series-line.series23 {
+    -fx-stroke: #191970;
+}
+.chart-line-symbol.series23 {
+    -fx-background-color: #191970, white;
+}
+
+.chart-series-line.series24 {
+    -fx-stroke: #0000FF;
+}
+.chart-line-symbol.series24 {
+    -fx-background-color: #0000FF, white;
+}
+
+.chart-series-line.series25 {
+    -fx-stroke: #8A2BE2;
+}
+.chart-line-symbol.series25 {
+    -fx-background-color: #8A2BE2, white;
+}
+
+.chart-series-line.series26 {
+    -fx-stroke: #8B008B;
+}
+.chart-line-symbol.series26 {
+    -fx-background-color: #8B008B, white;
+}
+
+.chart-series-line.series27 {
+    -fx-stroke: #EE82EE;
+}
+.chart-line-symbol.series27 {
+    -fx-background-color: #EE82EE, white;
+}
+
+.chart-series-line.series28 {
+    -fx-stroke: #FF1493;
+}
+.chart-line-symbol.series28 {
+    -fx-background-color: #FF1493, white;
+}
+
+.chart-series-line.series29 {
+    -fx-stroke: #8B4513;
+}
+.chart-line-symbol.series29 {
+    -fx-background-color: #8B4513, white;
+}
+
+.chart-series-line.series30 {
+    -fx-stroke: #D2691E;
+}
+.chart-line-symbol.series30 {
+    -fx-background-color: #D2691E, white;
+}
+
+.chart-series-line.series31 {
+    -fx-stroke: #B0C4DE;
+}
+.chart-line-symbol.series31 {
+    -fx-background-color: #B0C4DE, white;
+}
+
+.chart-series-line.series32 {
+    -fx-stroke: black;
+}
+.chart-line-symbol.series32 {
+    -fx-background-color: black, white;
+}
+
+.chart-series-line.series33 {
+    -fx-stroke: #808080;
+}
+.chart-line-symbol.series33 {
+    -fx-background-color: #808080, white;
+}
